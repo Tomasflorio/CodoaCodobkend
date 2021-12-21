@@ -4,6 +4,8 @@
     Author     : tomas
 --%>
 
+<%@page import="modelo.AlumnosDAO"%>
+<%@page import="modelo.Alumnos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,29 +16,37 @@
         <link rel="stylesheet" href="./estilo.css">
     </head>
     <body>
+        <%
+            String id = request.getParameter("id");
+            int mid;
+            mid = Integer.parseInt(id);
+            Alumnos resultado=null;
+            AlumnosDAO alumno = new AlumnosDAO();
+            resultado = alumno.mostrarAlumno(mid);
+        %>
         <h1 class="text-center">Modificar Alumno</h1>
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <form class="p-5 w-50" action="AlumnosController?accion=actualizar" method="POST">
                     <div class="mb-3">
-                        <label for="id"></label>
-                        <input type="hidden" class="form-control" id="id" name="id" value=<%=datos.id%>/>
+                        <label for="id" class="form-label"></label>
+                        <input type="hidden" class="form-control" id="id" name="id" value=<%=resultado.getId()%>/>
                     </div>
                     <div class="mb-3">
                         <label for="nombres">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value=<%=datos.nombres%>/>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value=<%=resultado.getNombres()%>/>
                     </div>
                     <div class="mb-3">
                         <label for="apellidos">Apellido</label> 
-                        <input type="text" class="form-control" id="apellido" name="apellido" value=<%=datos.apellidos%>/>
+                        <input type="text" class="form-control" id="apellido" name="apellido" value=<%=resultado.getApellidos()%>/>
                     </div>
                     <div class="mb-3">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="emaiñ" name="email" value=<%=datos.email%>/>
+                        <input type="text" class="form-control" id="emaiñ" name="email" value=<%=resultado.getEmail()%>/>
                     </div>
                     <div class="mb-3">
                         <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="teñefono" name="telefono" value=<%=datos.telefono%>/>
+                        <input type="text" class="form-control" id="teñefono" name="telefono" value=<%=resultado.getTelefono()%>/>
                     </div>
                     <button type="submit" class="btn btn-primary">Agregar</button>
                 </form>
