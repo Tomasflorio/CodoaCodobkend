@@ -1,31 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package config;
 
 import java.sql.*;
 
-
-/**
- *
- * @author tomas
- */
 public class Conexion {
+    public String driver = "com.mysql.cj.jdbc.Driver";
     public Connection getConection(){
-        Connection con = null;
+        Connection c = null;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con =DriverManager.getConnection("jdbc:mysql://localhost:3306/comision2160", "tomas", "1234");
+            Class.forName(driver);
+            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/comision2160",
+                    "root","");
+        }catch(ClassNotFoundException | SQLException error){
+            System.out.println(error.toString());
         }
-        catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.toString());
-        
-        } 
-        return con;
+        return c;
     }
     /*public static void main(String[] lelis) throws SQLException{
-        Connection conexion=null;
+        Connection conexion = null;
         Conexion con = new Conexion();
         conexion = con.getConection();
         
@@ -34,13 +25,16 @@ public class Conexion {
         ps = conexion.prepareStatement("SELECT * FROM participantes");
         rs = ps.executeQuery();
         while(rs.next()){
-            int id = rs.getInt("id");
-            String nombre = rs.getString("nombres");
-            String apellidos = rs.getString("apellidos");
-            String email = rs.getString("email");
-            int telefono = rs.getInt("telefono");
-            System.out.println("Id: "+ id + " Nombre: "+nombre+" Apellido: "+apellidos+" email: "+email+" Telefono: "+telefono);
+          int id = rs.getInt("id");
+          String nombre = rs.getString("nombres");
+          String apellidos = rs.getString("apellidos");
+          String email = rs.getString("email");
+          int telefono = rs.getInt("telefono");
+            System.out.println("Id: "+ id + "\n Nombre: "+ nombre+
+                    "\n Apellido: "+ "\n Email: "+email + "\n Telefono: "
+                    +telefono);
         }
+        
         
     }*/
 }

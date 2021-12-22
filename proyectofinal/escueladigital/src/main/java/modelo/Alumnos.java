@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author tomas
- */
+
 public class Alumnos {
     private int id;
     private String nombres;
@@ -54,16 +47,14 @@ public class Alumnos {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-
     
-    public Alumnos(int id, String nombres, String apellidos, String email, int telefono) {
-        this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.telefono = telefono;
+    public Alumnos(int id,String n, String apellidos,
+            String email,int telefono){
+        this.id=id;
+        this.nombres=n;
+        this.apellidos=apellidos;
+        this.email=email;
+        this.telefono=telefono;
     }
-    
-    
     
 }
