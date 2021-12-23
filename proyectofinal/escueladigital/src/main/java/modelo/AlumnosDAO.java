@@ -67,10 +67,7 @@ public class AlumnosDAO {
     public boolean insertarAlumno(Alumnos alumno){
         PreparedStatement ps;
         try{
-             ps = conexion.prepareStatement("INSERT INTO"
-                     + "participantes"
-                     + "(nombres,apellidos,email,telefono)"
-                     + "VALUES (?,?,?,?)");
+             ps = conexion.prepareStatement("INSERT INTO participantes (nombres,apellidos,email,telefono) VALUES (?,?,?,?)");
              ps.setString(1,alumno.getNombres());
              ps.setString(2,alumno.getApellidos());
              ps.setString(3,alumno.getEmail());

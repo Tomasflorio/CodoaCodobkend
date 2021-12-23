@@ -21,11 +21,11 @@
                 <form class="p-5 w-50" action="AlumnosController?accion=insert" method="POST">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre"/>
+                        <input type="text" class="form-control" id="nombres" name="nombre"/>
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido"/>
+                        <input type="text" class="form-control" id="apellidos" name="apellido"/>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
